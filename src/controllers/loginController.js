@@ -6,8 +6,9 @@ exports.index = (req, res) => {
 };
 
 exports.register = async function(req, res) {
-  const login = new Login(req.body);
-  await login.register();
+  try {
+    const login = new Login(req.body);
+    await login.register();
 
   if(login.errors.length > 0) {
     req.flash('errors', login.errors);
@@ -17,5 +18,13 @@ exports.register = async function(req, res) {
     return;
   }
 
-  res.send(login.errors);
+  req.flash('sucess', 'Seu usuário foi criado com');
+      req.session.save(function(){ 
+        return res.redirect('/login/index'); 
+      });
+  } catch(e) {
+    console.log(e);
+    return res.render('404');
+  }
+
 }
