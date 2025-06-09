@@ -19,6 +19,11 @@ class Login {
   async register() {
     this.valida();
     if (this.errors.length > 0) return;
+  }
+
+  async register() {
+    this.valida();
+    if (this.errors.length > 0) return;
 
       await this.userExists();
 
