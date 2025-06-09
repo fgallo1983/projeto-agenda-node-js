@@ -14,13 +14,29 @@ class Login {
     this.user = null;
   }
 
+  register() {
+    this.valida();
+  }
+
   valida() {
+    this.cleanUp();
     // validação
     // e-mail valido
     // senha
-    
   }
 
+  cleanUp() {
+    for (const key in this.body) {
+      if (typeof this.body[key] !== 'string'){
+        this.body[key] == '';
+      }
+    }
+
+    this.body = {
+      email: this.body.email,
+      password: this.body.password
+    };
+  }
 }
 
 module.exports = Login;
