@@ -10,7 +10,17 @@ const LoginModel = mongoose.model('Login', LoginSchema);
 class Login {
   constructor(body) {
     this.body = body;
+    this.errors = [];
+    this.user = null;
   }
+
+  valida() {
+    // validação
+    // e-mail valido
+    // senha
+    
+  }
+
 }
 
 module.exports = Login;
