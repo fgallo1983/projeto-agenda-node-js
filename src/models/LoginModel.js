@@ -27,7 +27,7 @@ class Login {
     if(!validator.isEmail(this.body.email)) this.errors.push('E-mail inváido');
 
     // senha
-    if (this.body.password.lenght < 3 || this.body.password.lenght >= 50) {
+    if (this.body.password.lenght < 3 || this.body.password.lenght > 50) {
       this.errors.push('A senha precisa ter no mínimo 3 e 50 caracteres');
     }
   }
