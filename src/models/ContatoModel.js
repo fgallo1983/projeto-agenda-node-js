@@ -19,6 +19,7 @@ function Contato(body) {
 
 Contato.buscaPorId = async function(id) {
   const user = await ContatoModel.findById(id);
+  return user;
 }
 
 Contato.prototype.register = async function () {
