@@ -1,7 +1,9 @@
 const Contato = require('../models/ContatoModel');
 
 exports.index = (req, res) => {
-    res.render('contato');
+    res.render('contato', {
+        contato: {}
+    });
 };
 
 exports.register = async (req, res) => {
@@ -17,7 +19,7 @@ exports.register = async (req, res) => {
         }
 
             req.flash('success', 'Contato registrado com sucesso');
-            req.session.save(() => res.redirect('/contato/index/${contato.contato._id}'));
+            req.session.save(() => res.redirect(`/contato/index/${contato.contato._id}`));
             return;
     } catch(e) {
         console.log(e);
