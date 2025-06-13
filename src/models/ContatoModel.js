@@ -30,11 +30,6 @@ Contato.prototype.register = async function () {
     if(this.body.email && !validator.isEmail(this.body.email)) this.errors.push('E-mail inváido');
     if(!this.body.nome) this.errors.push('Nome é um campo obrigatório');
     if(!this.body.nome && !this.body.telefone) this.errors.push('Pelo menos um contato precisa ser enviado');
-
-    // senha
-    if (this.body.password.length < 3 || this.body.password.length > 50) {
-      this.errors.push('A senha precisa ter no mínimo 3 e 50 caracteres');
-    }
   }
 
  Contato.prototype.cleanUp = function() {
