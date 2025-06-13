@@ -18,6 +18,7 @@ function Contato(body) {
 }
 
 Contato.buscaPorId = async function(id) {
+  if (!typeof id !== 'string') return;
   const user = await ContatoModel.findById(id);
   return user;
 }
