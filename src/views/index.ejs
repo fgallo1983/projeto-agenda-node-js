@@ -1,27 +1,28 @@
 <%- include('includes/head') %> 
 <%- include('includes/nav') %>
- <div class="container">
-    <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8 my-3">
-            <h1 class="text-center">Agenda</h1>
-            <p class="text-center lead">Seus contatos estão abaixo</p>
+ <div class="container-fluid px-4">
+  <div class="row">
+    <div class="col-12 my-3">
+     <h1 class="text-center text-white">Agenda</h1>
+    <p class="text-center lead text-white">Seus contatos estão abaixo</p>
 
-             <%- include('includes/messages') %>
+      <%- include('includes/messages') %>
 
-            <div class="responsive-table">
-                <table class="table my-3">
-                    <tr>
-                        <td>Felipe</td>
-                        <td>Gallo</td>
-                        <td>13213213</td>
-                        <td>felupe@teste.com</td>
-                    </tr>
-                </table>
-            </div>
-
-        </div>
-        <div class="col-lg-2"></div>
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped w-100">
+          <% contatos.forEach(contato => { %>
+          <tr>
+            <td><%= contato.nome %></td>
+            <td><%= contato.sobreno %></td>
+            <td><%= contato.telefone %></td>
+            <td><%= contato.email %></td>
+            <td><a href="/contato/index/<%= contato._id %>">Editar</a></td>
+            <td><a class="text-danger" href="/contato/delete/<%= contato._id %>">Apagar</a></td>
+          </tr>
+          <% }); %>
+        </table>
+      </div>
     </div>
+  </div>
 </div>
 <%- include('includes/footer') %>
