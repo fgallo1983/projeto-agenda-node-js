@@ -8,6 +8,7 @@
 
       <%- include('includes/messages') %>
 
+      <% if(contatos.length > 0) { %>
       <div class="table-responsive">
         <table class="table table-bordered table-striped w-100">
           <% contatos.forEach(contato => { %>
@@ -22,6 +23,9 @@
           <% }); %>
         </table>
       </div>
+      <% } else { %>
+         <p class="text-center lead text-white">Não existem cadastros</p>
+         <% } %>
     </div>
   </div>
 </div>
