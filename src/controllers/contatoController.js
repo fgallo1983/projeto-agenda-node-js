@@ -35,3 +35,8 @@ exports.editIndex = async function(req, res) {
 
     res.render('contato', { contato });
 };
+
+exports.edit = async function (req, res) {
+    if (!req.params.id) return res.render('404');
+    
+}
